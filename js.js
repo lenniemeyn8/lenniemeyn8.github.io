@@ -19,11 +19,30 @@ function addNewPosts(){
     div.appendChild(ul);
 }
 
+var mutationObserver = new MutationObserver(
+    function(mutations) {
+        mutations.forEach(function(mutation) {
+        console.log(mutation);
+        });
+    }
+);
+
+mutationObserver.observe(document.getElementById('contentArea'), {
+  attributes: true,
+  characterData: true,
+  childList: true,
+  subtree: true,
+  attributeOldValue: true,
+  characterDataOldValue: true
+});
+
 //script.innerHTML = 'function addNewPosts(){alert(\'hi from addNewPosts\');} $(\'body\').on(\"DOMSubtreeModified\", \"#contentArea\",function(){addNewPosts();});';
 
 function sendPost(type){
     alert('You clicked me');
 }
+
+
 
 function test(){
     alert('just a test function');
