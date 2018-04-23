@@ -20,6 +20,7 @@ function addNewPosts(){
 var mutationObserver = new MutationObserver(
     function(mutations) {
         mutations.forEach(function(mutation) {
+        alert (mutation.addedNodes);
         console.log(mutation);
         });
         addNewPosts();
@@ -31,7 +32,7 @@ mutationObserver.observe(document.getElementById('contentArea'), {
  // attributes: true,
  // characterData: true,
   childList: true,
-  subtree: true
+//  subtree: true
 //  attributeOldValue: true,
 //  characterDataOldValue: true
 });
