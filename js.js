@@ -28,12 +28,12 @@ var mutationObserver = new MutationObserver(
 );
 
 mutationObserver.observe(document.getElementById('contentArea'), {
-  attributes: true,
+  attributes: false,
   characterData: true,
   childList: true,
-  subtree: true,
-  attributeOldValue: true,
-  characterDataOldValue: true
+  subtree: false,
+  attributeOldValue: false,
+  characterDataOldValue: false
 });
 
 
