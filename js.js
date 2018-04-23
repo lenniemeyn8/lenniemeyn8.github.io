@@ -26,15 +26,18 @@ var mutationObserver = new MutationObserver(
         });
     }
 );
+function startObserving(){
+    mutationObserver.observe(document.getElementById('contentArea'), {
+      attributes: true,
+      characterData: true,
+      childList: true,
+      subtree: true,
+      attributeOldValue: true,
+      characterDataOldValue: true
+    });
+}
 
-mutationObserver.observe(document.getElementById('contentArea'), {
-  attributes: true,
-  characterData: true,
-  childList: true,
-  subtree: true,
-  attributeOldValue: true,
-  characterDataOldValue: true
-});
+
 
 //script.innerHTML = 'function addNewPosts(){alert(\'hi from addNewPosts\');} $(\'body\').on(\"DOMSubtreeModified\", \"#contentArea\",function(){addNewPosts();});';
 
