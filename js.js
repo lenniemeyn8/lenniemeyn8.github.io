@@ -40,7 +40,7 @@ mutationObserver.observe(document.getElementById('contentArea'), {
 document.getElementById('listOfPosts').addEventListener('click', function(e) {
   var selected;
 
-  if(e.target.tagName === 'a') {                                      // 2.
+  if(e.target.tagName === 'A') {                                      // 2.
     selected= document.querySelector('a.selected');                   // 2a.
     if(selected) selected.className= '';                               // "
     e.target.className= 'selected';                                    // 2b.
