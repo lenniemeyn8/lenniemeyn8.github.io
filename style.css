@@ -25,3 +25,7 @@
 #faceExtractor ul li a strong {
     margin-right:10px;
 }
+
+.selected {
+  background: lightgreen;
+}

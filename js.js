@@ -1,6 +1,6 @@
 function addNewPosts(){
-    div = document.getElementById('faceExtractor');
     ul = document.getElementById('listOfPosts');
+    $(ul).empty();
 
     listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5");
     listOfPosterName = document.getElementsByClassName("fwb fcg");
@@ -15,8 +15,6 @@ function addNewPosts(){
         li.appendChild(a);
         ul.appendChild(li);
     }
-
-    div.appendChild(ul);
 }
 
 var mutationObserver = new MutationObserver(
@@ -38,9 +36,21 @@ mutationObserver.observe(document.getElementById('contentArea'), {
 //  characterDataOldValue: true
 });
 
+document.getElementById('listOfPosts').addEventListener('click', function(e) {
+  var selected;
+
+  if(e.target.tagName === 'LI') {
+    selected= document.querySelector('li.selected');
+    if(selected) selected.className= '';
+    e.target.className= 'selected';
+  }
+});
+
 function sendPost(type){
     alert('You clicked me');
 }
+
+
 
 
 
