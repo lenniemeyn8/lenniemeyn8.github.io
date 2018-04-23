@@ -28,18 +28,13 @@ var mutationObserver = new MutationObserver(
 );
 
 mutationObserver.observe(document.getElementById('contentArea'), {
-  attributes: false,
+  attributes: true,
   characterData: true,
   childList: true,
-  subtree: false,
-  attributeOldValue: false,
-  characterDataOldValue: false
+  subtree: true,
+  attributeOldValue: true,
+  characterDataOldValue: true
 });
-
-
-
-
-//script.innerHTML = 'function addNewPosts(){alert(\'hi from addNewPosts\');} $(\'body\').on(\"DOMSubtreeModified\", \"#contentArea\",function(){addNewPosts();});';
 
 function sendPost(type){
     alert('You clicked me');
