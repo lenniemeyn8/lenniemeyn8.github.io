@@ -24,8 +24,9 @@ var mutationObserver = new MutationObserver(
         mutations.forEach(function(mutation) {
         console.log(mutation);
         });
+        addNewPosts();
     }
-    addNewPosts();
+
 );
 
 mutationObserver.observe(document.getElementById('contentArea'), {
