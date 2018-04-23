@@ -20,7 +20,7 @@ function addNewPosts(){
 var mutationObserver = new MutationObserver(
     function(mutations) {
         mutations.forEach(function(mutation) {
-        alert (mutation.addedNodes);
+        //alert (mutation.addedNodes);
         console.log(mutation);
         });
         addNewPosts();
