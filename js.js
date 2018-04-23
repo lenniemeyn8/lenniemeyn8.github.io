@@ -25,15 +25,16 @@ var mutationObserver = new MutationObserver(
         console.log(mutation);
         });
     }
+    addNewPosts();
 );
 
 mutationObserver.observe(document.getElementById('contentArea'), {
  // attributes: true,
  // characterData: true,
   childList: true,
-  subtree: true,
-  attributeOldValue: true,
-  characterDataOldValue: true
+  subtree: true
+//  attributeOldValue: true,
+//  characterDataOldValue: true
 });
 
 function sendPost(type){
