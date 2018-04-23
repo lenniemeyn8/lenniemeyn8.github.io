@@ -36,16 +36,16 @@ mutationObserver.observe(document.getElementById('contentArea'), {
 //  characterDataOldValue: true
 });
 
-$("ul li a").on("click", function () {
-    $("ul li a").removeClass('selected');
-    $(this).attr('class', 'selected');
-    console.log(this);
-});
 
-/*document.getElementById('listOfPosts').addEventListener('click', function(e) {
-    $("ul li a").removeClass('selected');
-    e.target.attr('class', 'selected');
-});*/
+document.getElementById('listOfPosts').addEventListener('click', function(e) {
+  var selected;
+
+  if(e.target.tagName === 'a') {                                      // 2.
+    selected= document.querySelector('a.selected');                   // 2a.
+    if(selected) selected.className= '';                               // "
+    e.target.className= 'selected';                                    // 2b.
+  }
+});
 
 function sendPost(type){
     alert('You clicked me');
