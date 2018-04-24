@@ -89,7 +89,7 @@ function sendPost(type){
 }
 
 
-
+$(document).ready(addNewPosts());
 
 
 function test(){
