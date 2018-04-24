@@ -12,9 +12,10 @@ function addNewPosts(){
 
     listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
     listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5");
+    listOfLikes = document.getElementsByClassName("_1g5v");
     //listOfPosterName = document.getElementsByClassName("fwb");
     listOfPosterName = document.querySelectorAll('span.fwb:not(._d_q)');
-    listOfText = document.getElementsByClassName("js_2vw");
+    listOfText = document.getElementsByClassName("_5pbx userContent");
 
     for (var count=0;count < listOfPosterName.length ; count++){
         var li = document.createElement("li");
@@ -25,8 +26,11 @@ function addNewPosts(){
         li.appendChild(a);
         ul.appendChild(li);
     }
-    RedFrameObject.style.border = "";
-    RedFrameBoolean = false;
+    if (RedFrameBoolean){
+        RedFrameObject.style.border = "";
+        RedFrameBoolean = false;
+    }
+
 }
 
 var mutationObserver = new MutationObserver(
@@ -86,7 +90,16 @@ function getNumberOfSelectedPost(){
 }
 
 function sendPost(type){
-    alert('You clicked me');
+    ul = document.getElementById('listOfPosts');
+    ulList = ul.children;
+    for(var i = 0;i < ulList.length;i++){
+        if (ulList[i].children[0].getAttribute('id') == 'selected'){
+            alert('Text:' + listOfText.children[0].innerHTML + '<br>' + 'Likes: ' + listOfLikes.children[0].innerHTML)
+            break;
+        }
+    }
+    //alert('You clicked me');
+
 }
 
 
