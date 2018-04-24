@@ -32,7 +32,7 @@ mutationObserver.observe(document.getElementById('contentArea'), {
  // attributes: true,
  // characterData: true,
   childList: true,
-//  subtree: true
+  subtree: true
 //  attributeOldValue: true,
 //  characterDataOldValue: true
 });
