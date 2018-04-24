@@ -89,9 +89,6 @@ function sendPost(type){
 }
 
 
-$(document).ready(addNewPosts());
-
-
 function test(){
     alert('just a test function');
 }
