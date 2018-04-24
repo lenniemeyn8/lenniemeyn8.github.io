@@ -42,9 +42,9 @@ document.getElementById('listOfPosts').addEventListener('click', function(e) {
   var selected;
 
   if(e.target.tagName === 'A') {                                      // 2.
-    selected= document.querySelector('a.selected');                   // 2a.
-    if(selected) selected.className= '';                               // "
-    e.target.className= 'selected';                                    // 2b.
+    selected = document.getElementById('selected');                   // 2a.
+    if(selected) selected.setAttribute('id', '');                               // "
+    e.target.setAttribute('id', 'selected');                                    // 2b.
   }
 });
 
