@@ -57,7 +57,7 @@ document.getElementById('listOfPosts').addEventListener('click', function(e) {
 
 function setRedFrame(number){
     alert(number);
-    listOfContainers.item(i).style.border = "1px solid red";
+    listOfContainers.item(number).style.border = "1px solid red";
 }
 
 function getNumberOfSelectedPost(){
