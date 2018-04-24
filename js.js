@@ -9,7 +9,7 @@ function addNewPosts(){
 
     listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
     listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5");
-    listOfPosterName = document.getElementsByClassName("fwb fcg");
+    listOfPosterName = document.getElementsByClassName("fwb");
     listOfText = document.getElementsByClassName("js_2vw");
 
     for (var count=0;count < listOfPosterName.length ; count++){
@@ -56,8 +56,7 @@ document.getElementById('listOfPosts').addEventListener('click', function(e) {
 });
 
 function setRedFrame(number){
-    alert(number);
-    listOfContainers.item(number).style.border = "1px solid red";
+    listOfContainers.item(number).style.border = "2px solid red";
 }
 
 function getNumberOfSelectedPost(){
