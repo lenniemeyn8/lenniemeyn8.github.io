@@ -3,6 +3,9 @@ var listOfLikeBars;
 var listOfPosterName;
 var listOfText;
 
+var RedFrameObject;
+var RedFrameBoolean = false;
+
 function addNewPosts(){
     ul = document.getElementById('listOfPosts');
     $(ul).empty();
@@ -57,7 +60,15 @@ document.getElementById('listOfPosts').addEventListener('click', function(e) {
 });
 
 function setRedFrame(number){
-    listOfContainers.item(number).style.border = "2px solid red";
+    if (RedFrameBoolean){
+        RedFrameObject.style.border = "";
+        RedFrameObject = listOfContainers.item(number);
+        RedFrameObject.style.border = "2px solid red";
+    } else {
+        RedFrameObject = listOfContainers.item(number);
+        RedFrameObject.style.border = "2px solid red";
+    }
+
 }
 
 function getNumberOfSelectedPost(){
