@@ -12,7 +12,7 @@ function addNewPosts(){
 
     listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
     listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5");
-    listOfPosterName = document.getElementsByClassName("fwb");
+    //listOfPosterName = document.getElementsByClassName("fwb");
     listOfPosterName = document.querySelectorAll('span.fwb:not(._d_q)');
     listOfText = document.getElementsByClassName("js_2vw");
 
@@ -67,6 +67,7 @@ function setRedFrame(number){
     } else {
         RedFrameObject = listOfContainers.item(number);
         RedFrameObject.style.border = "2px solid red";
+        RedFrameBoolean = true;
     }
 
 }
