@@ -57,13 +57,14 @@ document.getElementById('listOfPosts').addEventListener('click', function(e) {
 
 function setRedFrame(number){
     alert(number);
+    listOfContainers.item(i).style.border = "1px solid red";
 }
 
 function getNumberOfSelectedPost(){
     ul = document.getElementById('listOfPosts');
     ulList = ul.children;
     for(var i = 0;i < ulList.length;i++){
-        if (ulList[i].getAttribute('id') == 'selected'){
+        if (ulList[i].children[0].getAttribute('id') == 'selected'){
             setRedFrame(i);
             break;
         }
