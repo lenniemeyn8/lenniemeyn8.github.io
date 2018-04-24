@@ -26,6 +26,6 @@
     margin-right:10px;
 }
 
-.selected {
+#selected {
   background-color: lightgreen;
 }
