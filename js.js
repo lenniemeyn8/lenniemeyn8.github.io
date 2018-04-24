@@ -10,6 +10,7 @@ function addNewPosts(){
     listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
     listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5");
     listOfPosterName = document.getElementsByClassName("fwb");
+    listOfPosterName = document.querySelectorAll('span.fwb:not(._d_q)');
     listOfText = document.getElementsByClassName("js_2vw");
 
     for (var count=0;count < listOfPosterName.length ; count++){
