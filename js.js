@@ -1,7 +1,13 @@
+var listOfContainers;
+var listOfLikeBars;
+var listOfPosterName;
+var listOfText;
+
 function addNewPosts(){
     ul = document.getElementById('listOfPosts');
     $(ul).empty();
 
+    listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
     listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5");
     listOfPosterName = document.getElementsByClassName("fwb fcg");
     listOfText = document.getElementsByClassName("js_2vw");
@@ -41,12 +47,28 @@ mutationObserver.observe(document.getElementById('contentArea'), {
 document.getElementById('listOfPosts').addEventListener('click', function(e) {
   var selected;
 
-  if(e.target.tagName === 'A') {                                      // 2.
-    selected = document.getElementById('selected');                   // 2a.
-    if(selected) selected.setAttribute('id', '');                               // "
-    e.target.setAttribute('id', 'selected');                                    // 2b.
+  if(e.target.tagName === 'A') {
+    selected = document.getElementById('selected');
+    if(selected) selected.setAttribute('id', '');
+    e.target.setAttribute('id', 'selected');
+    getNumberOfSelectedPost ();
   }
 });
+
+function setRedFrame(number){
+    alert(number);
+}
+
+function getNumberOfSelectedPost(){
+    ul = document.getElementById('listOfPosts');
+    ulList = ul.children;
+    for(var i = 0;i < ulList.length;i++){
+        if (ulList[i].getAttribute('id') == 'selected'){
+            setRedFrame(i);
+            break;
+        }
+    }
+}
 
 function sendPost(type){
     alert('You clicked me');
