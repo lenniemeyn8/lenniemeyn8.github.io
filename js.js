@@ -25,6 +25,7 @@ function addNewPosts(){
         li.appendChild(a);
         ul.appendChild(li);
     }
+    RedFrameObject.style.border = "";
     RedFrameBoolean = false;
 }
 
