@@ -94,7 +94,7 @@ function sendPost(type){
     ulList = ul.children;
     for(var i = 0;i < ulList.length;i++){
         if (ulList[i].children[0].getAttribute('id') == 'selected'){
-            alert('Text:' + listOfText.item9(i).children[0].innerHTML + '<br>' + 'Likes: ' + listOfLikes.item(i).children[0].innerHTML)
+            alert('Text:' + listOfText.item(i).children[0].innerHTML + '<br>' + 'Likes: ' + listOfLikes.item(i).children[0].innerHTML)
             break;
         }
     }
