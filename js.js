@@ -25,6 +25,7 @@ function addNewPosts(){
         li.appendChild(a);
         ul.appendChild(li);
     }
+    RedFrameBoolean = false;
 }
 
 var mutationObserver = new MutationObserver(
