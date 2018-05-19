@@ -19,7 +19,20 @@ function addNewPosts(){
     for (var count=0; count < listOfContainers.length; count++){
         var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
         var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
-        alert(posterName.item(0).children[0].innerHTML);
+        
+        //create the element to add to the list of posts
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.setAttribute('href', '#');
+        a.innerHTML = posterName.item(0).children[0].innerHTML;
+        li.appendChild(a);
+        ul.appendChild(li);
+        //alert(posterName.item(0).children[0].innerHTML);
+        
+    }
+    if (RedFrameBoolean){
+        RedFrameObject.style.border = "";
+        RedFrameBoolean = false;
     }
 
 
