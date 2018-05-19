@@ -21,7 +21,26 @@ function addNewPosts(){
         var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
         
         if (posterName.item(0) == null){
-            alert('No name was found for the post');
+            var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
+            if (postText.item(0) == null){
+                //create the element to add to the list of posts without the text!
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.setAttribute('href', '#');
+                a.innerHTML = posterName.item(0).children[0].innerHTML;
+                li.appendChild(a);
+                ul.appendChild(li);
+            } else {
+                //create the element to add to the list of posts
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.setAttribute('href', '#');
+                var text = postText.item(0).children[0].innerHTML;
+                var startText = text.substring(0, 10);
+                a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
+                li.appendChild(a);
+                ul.appendChild(li);
+            }
         } else {
             if (postText.item(0) == null){
                 //create the element to add to the list of posts without the text!
@@ -59,20 +78,7 @@ function addNewPosts(){
 //    //listOfPosterName = document.getElementsByClassName("fwb");
 //    listOfPosterName = document.querySelectorAll('span.fwb fcg:not(._d_q)');
 //    listOfText = document.getElementsByClassName("_5pbx userContent");
-//
-//    for (var count=0;count < listOfPosterName.length ; count++){
-//        var li = document.createElement("li");
-//        var a = document.createElement("a");
-//        a.setAttribute('href', '#');
-//        var titleChildren = listOfPosterName.item(count).children;
-//        a.innerHTML = titleChildren[0].innerHTML;
-//        li.appendChild(a);
-//        ul.appendChild(li);
-//    }
-//    if (RedFrameBoolean){
-//        RedFrameObject.style.border = "";
-//        RedFrameBoolean = false;
-//    }
+
 
 }
 
