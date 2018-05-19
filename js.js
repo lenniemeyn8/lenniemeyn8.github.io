@@ -17,7 +17,8 @@ function addNewPosts(){
     
     //each container holds a post. For each container the name and more has to displayed
     for (var count=0; count < listOfContainers.length; count++){
-        var posterName = listOfContainers.getElementsByClassName("fwb fcg");
+        var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
+        var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
         alert(posterName.item(0).children[0].innerHTML);
     }
 
@@ -105,15 +106,18 @@ function getNumberOfSelectedPost(){
 }
 
 function sendPost(type){
-    ul = document.getElementById('listOfPosts');
-    ulList = ul.children;
-    for(var i = 0;i < ulList.length;i++){
-        if (ulList[i].children[0].getAttribute('id') == 'selected'){
-            alert('Text:' + listOfText.item(i).children[0].innerHTML + '<br>' + 'Likes: ' + listOfLikes.item(i).children[0].innerHTML)
-            break;
-        }
-    }
+//    ul = document.getElementById('listOfPosts');
+//    ulList = ul.children;
+//    for(var i = 0;i < ulList.length;i++){
+//        if (ulList[i].children[0].getAttribute('id') == 'selected'){
+//            alert('Text:' + listOfText.item(i).children[0].innerHTML + '<br>' + 'Likes: ' + listOfLikes.item(i).children[0].innerHTML)
+//            break;
+//        }
+//    }
     //alert('You clicked me');
+    FB.api('/113124472034820', function(response) {
+            console.log(response);}
+    );
 
 }
 
