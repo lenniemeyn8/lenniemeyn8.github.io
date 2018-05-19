@@ -23,15 +23,26 @@ function addNewPosts(){
         if (posterName.item(0) == null){
             alert('No name was found for the post');
         } else {
-            //create the element to add to the list of posts
-            var li = document.createElement("li");
-            var a = document.createElement("a");
-            a.setAttribute('href', '#');
-            var text = postText.item(0).children[0].innerHTML;
-            var startText = text.substring(1, 10);
-            a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
-            li.appendChild(a);
-            ul.appendChild(li);
+            if (postText.item(0) == null){
+                //create the element to add to the list of posts without the text!
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.setAttribute('href', '#');
+                a.innerHTML = posterName.item(0).children[0].innerHTML;
+                li.appendChild(a);
+                ul.appendChild(li);
+            } else {
+                //create the element to add to the list of posts
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.setAttribute('href', '#');
+                var text = postText.item(0).children[0].innerHTML;
+                var startText = text.substring(0, 10);
+                a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
+                li.appendChild(a);
+                ul.appendChild(li);
+            }
+            
         }
         
     }
