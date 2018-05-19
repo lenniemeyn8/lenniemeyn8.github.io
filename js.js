@@ -20,14 +20,19 @@ function addNewPosts(){
         var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
         var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
         
-        //create the element to add to the list of posts
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.setAttribute('href', '#');
-        a.innerHTML = posterName.item(0).children[0].innerHTML;
-        li.appendChild(a);
-        ul.appendChild(li);
-        //alert(posterName.item(0).children[0].innerHTML);
+        if (posterName.item(0) == null){
+            alert('No name was found for the post');
+        } else {
+            //create the element to add to the list of posts
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.setAttribute('href', '#');
+            var text = postText.item(0).children[0].innerHTML;
+            var startText = text.substring(1, 10);
+            a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
+            li.appendChild(a);
+            ul.appendChild(li);
+        }
         
     }
     if (RedFrameBoolean){
@@ -128,7 +133,7 @@ function sendPost(type){
 //        }
 //    }
     //alert('You clicked me');
-    FB.api('/113124472034820', function(response) {
+    FB.api('/5b00aca1d44943896018996', function(response) {
             console.log(response);}
     );
 
