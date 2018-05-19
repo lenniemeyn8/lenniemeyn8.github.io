@@ -6,33 +6,47 @@ var listOfText;
 var RedFrameObject;
 var RedFrameBoolean = false;
 
+//function to refresh the list of posts
 function addNewPosts(){
+    //get the list of posts and empty it first so it can be filled with the new posts
     ul = document.getElementById('listOfPosts');
     $(ul).empty();
 
-    listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
-    listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5");
-    listOfLikes = document.getElementsByClassName("_1g5v");
-    //listOfPosterName = document.getElementsByClassName("fwb");
-    listOfPosterName = document.querySelectorAll('span.fwb:not(._d_q)');
-    listOfText = document.getElementsByClassName("_5pbx userContent");
 
-    for (var count=0;count < listOfPosterName.length ; count++){
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.setAttribute('href', '#');
-        var titleChildren = listOfPosterName.item(count).children;
-        a.innerHTML = titleChildren[0].innerHTML;
-        li.appendChild(a);
-        ul.appendChild(li);
+    listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
+    
+    //each container holds a post. For each container the name and more has to displayed
+    for (var count=0; count < listOfContainers.length; count++){
+        var posterName = listofContainers.getElementsByClassName("fwb fcg");
+        alert(posterName);
     }
-    if (RedFrameBoolean){
-        RedFrameObject.style.border = "";
-        RedFrameBoolean = false;
-    }
+
+
+
+    
+//    listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5");
+//    listOfLikes = document.getElementsByClassName("_1g5v");
+//    //listOfPosterName = document.getElementsByClassName("fwb");
+//    listOfPosterName = document.querySelectorAll('span.fwb fcg:not(._d_q)');
+//    listOfText = document.getElementsByClassName("_5pbx userContent");
+//
+//    for (var count=0;count < listOfPosterName.length ; count++){
+//        var li = document.createElement("li");
+//        var a = document.createElement("a");
+//        a.setAttribute('href', '#');
+//        var titleChildren = listOfPosterName.item(count).children;
+//        a.innerHTML = titleChildren[0].innerHTML;
+//        li.appendChild(a);
+//        ul.appendChild(li);
+//    }
+//    if (RedFrameBoolean){
+//        RedFrameObject.style.border = "";
+//        RedFrameBoolean = false;
+//    }
 
 }
 
+//mutation observer to be fired when the DOM changes of the facebook site
 var mutationObserver = new MutationObserver(
     function(mutations) {
         mutations.forEach(function(mutation) {
@@ -65,6 +79,7 @@ document.getElementById('listOfPosts').addEventListener('click', function(e) {
   }
 });
 
+//function to set a red border around a post so the user know which post is selected
 function setRedFrame(number){
     if (RedFrameBoolean){
         RedFrameObject.style.border = "";
