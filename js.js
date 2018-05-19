@@ -13,7 +13,8 @@ function addNewPosts(){
     $(ul).empty();
 
 
-    listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
+    //listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
+    listOfPosterName = document.querySelectorAll('div._5pcr userContentWrapper:not(._4nef)');
     
     //each container holds a post. For each container the name and more has to displayed
     for (var count=0; count < listOfContainers.length; count++){
@@ -162,7 +163,7 @@ function sendPost(type){
         }
     });
     
-    FB.api('/5b00aca1d44943896018996', function(response) {
+    FB.api('/10156448134209295', function(response) {
             console.log(response);}
     );
 
