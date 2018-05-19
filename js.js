@@ -17,7 +17,7 @@ function addNewPosts(){
     
     //each container holds a post. For each container the name and more has to displayed
     for (var count=0; count < listOfContainers.length; count++){
-        var posterName = listofContainers.getElementsByClassName("fwb fcg");
+        var posterName = listOfContainers.getElementsByClassName("fwb fcg");
         alert(posterName.item(0).children[0].innerHTML);
     }
 
