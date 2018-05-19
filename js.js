@@ -14,7 +14,7 @@ function addNewPosts(){
 
 
     //listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
-    listOfPosterName = document.querySelectorAll('div._5pcr userContentWrapper:not(._4nef)');
+    listOfPosterName = document.querySelectorAll('_5pcr userContentWrapper:not(._4nef)');
     
     //each container holds a post. For each container the name and more has to displayed
     for (var count=0; count < listOfContainers.length; count++){
@@ -37,7 +37,7 @@ function addNewPosts(){
                 var a = document.createElement("a");
                 a.setAttribute('href', '#');
                 var text = postText.item(0).children[0].innerHTML;
-                var startText = text.substring(0, 10);
+                var startText = text.substring(0, 20);
                 a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
                 li.appendChild(a);
                 ul.appendChild(li);
