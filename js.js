@@ -20,10 +20,6 @@ function addNewPosts(){
         var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
         var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
         
-        //check if there is a subcontainer in the container
-        if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper")){
-            count++
-        }
         if (posterName.item(0) == null){
             var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
             if (postText.item(0) == null){
@@ -65,7 +61,12 @@ function addNewPosts(){
                 li.appendChild(a);
                 ul.appendChild(li);
             }    
-        }      
+        }
+        //check if there is a subcontainer in the container
+        if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper")){
+            count++;
+            alert('found a post with a subcontainer');
+        }
     }
     if (RedFrameBoolean){
         RedFrameObject.style.border = "";
