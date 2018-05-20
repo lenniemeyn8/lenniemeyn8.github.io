@@ -153,20 +153,17 @@ function sendPost(type){
 //    }
     //alert('You clicked me');
     
-    FB.login(function(response) {
-        if (response.authResponse) {
-         console.log('Welcome!  Fetching your information.... ');
-         FB.api('/me', function(response) {
-           console.log('Good to see you, ' + response.name + '.');
-         });
-        } else {
-         console.log('User cancelled login or did not fully authorize.');
-        }
-    });
-    
-    FB.api('/10156448134209295', function(response) {
-            console.log(response);}
+    FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                var accessToken = response.authResponse.accessToken;
+                alert(accessToken);
+            } 
+        } 
     );
+    
+//    FB.api('/10156448134209295', function(response) {
+//            console.log(response);}
+//    );
 
 }
 
