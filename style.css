@@ -33,4 +33,6 @@
 #faceExtractorheader {
     background-color: #f1f1f1;
     cursor: move;
+    margin : 10px 10px 10px 10px;
+    text-align: center;
 }
