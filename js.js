@@ -64,8 +64,8 @@ function addNewPosts(){
         }
         //check if there is a subcontainer in the container
         if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper").length >= 1){
-            count++;
-            alert(listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper").length);
+            listOfContainers.item(count + 1).remove();
+            //count++;
         }
     }
     if (RedFrameBoolean){
