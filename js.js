@@ -63,9 +63,8 @@ function addNewPosts(){
             }    
         }
         //check if there is a subcontainer in the container
-        if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper")){
+        if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper").length > 0){
             count++;
-            var test = listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper")
             alert('found a post with a subcontainer');
         }
     }
