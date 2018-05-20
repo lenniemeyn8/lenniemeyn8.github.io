@@ -12,9 +12,7 @@ function addNewPosts(){
     ul = document.getElementById('listOfPosts');
     $(ul).empty();
 
-
-    //listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
-    //listOfPosterName = document.querySelectorAll('div.userContentWrapper:not(._4nef)');
+    //get all the containers for the post
     listOfContainers = document.querySelectorAll('._5pcr.userContentWrapper:not(._4nef)');
     
     //each container holds a post. For each container the name and more has to displayed
@@ -22,6 +20,10 @@ function addNewPosts(){
         var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
         var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
         
+        //check if there is a subcontainer in the container
+        if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper")){
+            count++
+        }
         if (posterName.item(0) == null){
             var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
             if (postText.item(0) == null){
@@ -62,26 +64,13 @@ function addNewPosts(){
                 a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
                 li.appendChild(a);
                 ul.appendChild(li);
-            }
-            
-        }
-        
+            }    
+        }      
     }
     if (RedFrameBoolean){
         RedFrameObject.style.border = "";
         RedFrameBoolean = false;
     }
-
-
-
-    
-//    listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5");
-//    listOfLikes = document.getElementsByClassName("_1g5v");
-//    //listOfPosterName = document.getElementsByClassName("fwb");
-//    listOfPosterName = document.querySelectorAll('span.fwb fcg:not(._d_q)');
-//    listOfText = document.getElementsByClassName("_5pbx userContent");
-
-
 }
 
 //mutation observer to be fired when the DOM changes of the facebook site
@@ -151,10 +140,12 @@ function sendPost(type){
 //            break;
 //        }
 //    }
+        //listOfBars = document.getElementsByClassName("_42nr _1mtp");
+    //listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5")
     //alert('You clicked me');
     FB.login(function(response) { alert(response.authResponse.accessToken);
      });
-    
+;
 //    FB.api('/10156448134209295', function(response) {
 //            console.log(response);}
 //    );
