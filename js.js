@@ -65,7 +65,7 @@ function addNewPosts(){
         //check if there is a subcontainer in the container
         if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper").length > 0){
             count++;
-            alert('found a post with a subcontainer');
+            alert(listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper").length);
         }
     }
     if (RedFrameBoolean){
