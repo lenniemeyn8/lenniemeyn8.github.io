@@ -13,8 +13,8 @@ function addNewPosts(){
     $(ul).empty();
 
 
-    listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
-    //listOfPosterName = document.querySelectorAll('_5pcr userContentWrapper:not(._4nef)');
+    //listOfContainers = document.getElementsByClassName("_5pcr userContentWrapper");
+    listOfPosterName = document.querySelectorAll('div.userContentWrapper:not(._4nef)');
     
     //each container holds a post. For each container the name and more has to displayed
     for (var count=0; count < listOfContainers.length; count++){
