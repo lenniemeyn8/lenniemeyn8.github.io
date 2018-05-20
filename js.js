@@ -152,14 +152,8 @@ function sendPost(type){
 //        }
 //    }
     //alert('You clicked me');
-    
-    FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-                var accessToken = response.authResponse.accessToken;
-                alert(accessToken);
-            } 
-        } 
-    );
+    FB.login(function(response) { alert(response.authResponse.accessToken);
+     });
     
 //    FB.api('/10156448134209295', function(response) {
 //            console.log(response);}
