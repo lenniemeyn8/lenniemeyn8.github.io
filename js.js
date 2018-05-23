@@ -159,12 +159,9 @@ function test(){
     alert('just a test function');
 }
 
-$( document ).ready(function() {
-    $(window).scroll(function(){
-        document.getElementById("faceExtractor").style.top = ($(window).scrollTop()) + "px";
-        //$("#faceExtractor").css({"margin-top": ($(window).scrollTop()) + "px"});
-    });
-});
+window.onscroll = function () {
+    document.getElementById("faceExtractor").style.top = ($(window).scrollTop()) + "px";
+};
 
 
 dragElement(document.getElementById(("faceExtractor")));
