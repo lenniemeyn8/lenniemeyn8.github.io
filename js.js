@@ -56,7 +56,7 @@ function addNewPosts(){
                 var a = document.createElement("a");
                 a.setAttribute('href', '#');
                 var text = postText.item(0).children[0].innerHTML;
-                var startText = text.substring(0, 10);
+                var startText = text.substring(0, 20);
                 a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
                 li.appendChild(a);
                 ul.appendChild(li);
@@ -64,7 +64,8 @@ function addNewPosts(){
         }
         //check if there is a subcontainer in the container
         if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper").length >= 1){
-            listOfContainers.item(count + 1).remove();
+            //do something because 2 items were added to the list that belong to the same post
+            //listOfContainers.item(count + 1).remove();
             //count++;
         }
     }
@@ -159,7 +160,8 @@ function test(){
 }
 
 $(window).scroll(function(){
-  $("#faceExtractor").css({"margin-top": ($(window).scrollTop()) + "px"});
+    document.getElementById("faceExtractor").style.top = ($(window).scrollTop()) + "px";
+  //$("#faceExtractor").css({"margin-top": ($(window).scrollTop()) + "px"});
 });
 
 dragElement(document.getElementById(("faceExtractor")));
