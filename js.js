@@ -158,6 +158,10 @@ function test(){
     alert('just a test function');
 }
 
+$(window).scroll(function(){
+  $("#faceExtractor").css({"margin-top": ($(window).scrollTop()) + "px"});
+});
+
 dragElement(document.getElementById(("faceExtractor")));
 
 function dragElement(elmnt) {
