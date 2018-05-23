@@ -160,7 +160,7 @@ function test(){
 }
 
 window.onscroll = function () {
-    document.getElementById("faceExtractor").style.top = ($(window).scrollTop()) + "px";
+    document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
 };
 
 
