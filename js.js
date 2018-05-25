@@ -19,6 +19,7 @@ function addNewPosts(){
     for (var count=0; count < listOfContainers.length; count++){
         var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
         var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
+        alert(postText.textContent);
         
         if (posterName.item(0) == null){
             var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
