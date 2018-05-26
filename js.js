@@ -166,13 +166,18 @@ function sendPost(type){
 
 }
 
+function facebookLogin(){
+        FB.login(function(response) { alert(response.authResponse.accessToken);
+        });
+}
+
 
 function test(){
     alert('just a test function');
 }
 
 window.onscroll = function () {
-    document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
+    document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + $('#faceExtractor').offset().top) + "px";
 };
 
 
