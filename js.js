@@ -105,7 +105,7 @@ document.getElementById('listOfPosts').addEventListener('click', function(e) {
     selected = document.getElementById('selected');
     if(selected) selected.setAttribute('id', '');
     e.target.setAttribute('id', 'selected');
-    getNumberOfSelectedPost ();
+    getNumberOfSelectedPost();
   }
 });
 
@@ -129,12 +129,17 @@ function getNumberOfSelectedPost(){
     for(var i = 0;i < ulList.length;i++){
         if (ulList[i].children[0].getAttribute('id') == 'selected'){
             setRedFrame(i);
+            return i;
             break;
         }
     }
 }
 
 function sendPost(type){
+    var index = getNumberOfSelectedPost();
+    var postID = listOfContainers.item(index).getElementsByClassName("_5pcq");
+    postID = postID.item(0).href;
+    alert(postID);
 //    ul = document.getElementById('listOfPosts');
 //    ulList = ul.children;
 //    for(var i = 0;i < ulList.length;i++){
@@ -148,7 +153,6 @@ function sendPost(type){
     //alert('You clicked me');
     FB.login(function(response) { alert(response.authResponse.accessToken);
      });
-;
 //    FB.api('/10156448134209295', function(response) {
 //            console.log(response);}
 //    );
