@@ -1,7 +1,7 @@
 var listOfContainers;
 var listOfLikeBars;
-var listOfPosterName;
-var listOfText;
+var listOfPosterName = [];
+var listOfText = [];
 
 var RedFrameObject;
 var RedFrameBoolean = false;
@@ -15,15 +15,19 @@ function addNewPosts(){
     //get all the containers for the post
     listOfContainers = document.querySelectorAll('._5pcr.userContentWrapper:not(._4nef)');
     
+    //refresh the content of the post item holders
+    listOfText = [];
+    listOfPosterName = [];
+    
     //each container holds a post. For each container the name and more has to displayed
     for (var count=0; count < listOfContainers.length; count++){
         var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
         var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
-        alert(postText.item(0).textContent);
+        postText = postText.item(0).textContent;
         
         if (posterName.item(0) == null){
             var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
-            if (postText.item(0) == null){
+            if (postText == "undefined"){
                 //create the element to add to the list of posts without the text!
                 var li = document.createElement("li");
                 var a = document.createElement("a");
@@ -36,14 +40,13 @@ function addNewPosts(){
                 var li = document.createElement("li");
                 var a = document.createElement("a");
                 a.setAttribute('href', '#');
-                var text = postText.item(0).children[0].innerHTML;
-                var startText = text.substring(0, 20);
+                var startText = postText.substring(0, 20);
                 a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
                 li.appendChild(a);
                 ul.appendChild(li);
             }
         } else {
-            if (postText.item(0) == null){
+            if (postText == "undefined"){
                 //create the element to add to the list of posts without the text!
                 var li = document.createElement("li");
                 var a = document.createElement("a");
@@ -56,8 +59,7 @@ function addNewPosts(){
                 var li = document.createElement("li");
                 var a = document.createElement("a");
                 a.setAttribute('href', '#');
-                var text = postText.item(0).children[0].innerHTML;
-                var startText = text.substring(0, 20);
+                var startText = postText.substring(0, 20);
                 a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
                 li.appendChild(a);
                 ul.appendChild(li);
@@ -69,6 +71,10 @@ function addNewPosts(){
             //listOfContainers.item(count + 1).remove();
             //count++;
         }
+        //add the attributes of each
+        listOfText.push(postText);
+        listOfPosterName.push(posterName.item(0).children[0].innerHTML);
+
     }
     if (RedFrameBoolean){
         RedFrameObject.style.border = "";
@@ -151,8 +157,9 @@ function sendPost(type){
         //listOfBars = document.getElementsByClassName("_42nr _1mtp");
     //listOfLikeBars = document.getElementsByClassName("_3399 _1f6t _4_dr _20h5")
     //alert('You clicked me');
-    FB.login(function(response) { alert(response.authResponse.accessToken);
-     });
+    //
+    //FB.login(function(response) { alert(response.authResponse.accessToken);
+    // });
 //    FB.api('/10156448134209295', function(response) {
 //            console.log(response);}
 //    );
