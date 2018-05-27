@@ -185,6 +185,26 @@ window.onscroll = function () {
 };
 
 
+async function homeRefresh() {
+  //console.log('calling');
+  var result = await resolveAfter2Seconds();
+  addNewPosts();
+  //console.log(result);
+  // expected output: "resolved"
+}
+
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 2000);
+  });
+}
+
+
+
+
+
 dragElement(document.getElementById(("faceExtractor")));
 
 function dragElement(elmnt) {
