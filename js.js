@@ -188,7 +188,7 @@ window.onscroll = function () {
 function homeRefresh() {
   var timer = setTimeout(function(){
       alert('hi');
-    addNewPosts();
+    //addNewPosts();
     }, 2000);
 
 }
