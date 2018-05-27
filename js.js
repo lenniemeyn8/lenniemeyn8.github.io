@@ -186,7 +186,7 @@ window.onscroll = function () {
 
 
 function homeRefresh() {
-  setTimeout(function(){
+  window.setTimeout(function(){
     addNewPosts();
     }, 2000);
 
