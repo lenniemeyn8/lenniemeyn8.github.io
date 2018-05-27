@@ -181,7 +181,7 @@ function test(){
 
 window.onscroll = function () {
     var topDistance = document.getElementById("faceExtractor").getBoundingClientRect().top;
-    document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + topDistance) + "px";
+    document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
 };
 
 
