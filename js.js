@@ -185,24 +185,12 @@ window.onscroll = function () {
 };
 
 
-async function homeRefresh() {
-  //console.log('calling');
-  var result = await resolveAfter2Seconds();
-  addNewPosts();
-  //console.log(result);
-  // expected output: "resolved"
-}
-
-function resolveAfter2Seconds() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve('resolved');
+function homeRefresh() {
+  setTimeout(function(){
+    addNewPosts();
     }, 2000);
-  });
+
 }
-
-
-
 
 
 dragElement(document.getElementById(("faceExtractor")));
