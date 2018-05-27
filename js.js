@@ -23,11 +23,11 @@ function addNewPosts(){
     for (var count=0; count < listOfContainers.length; count++){
         var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
         var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
-        postText = postText.item(0).textContent;
+        
         
         if (posterName.item(0) == null){
             var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
-            if (postText == "undefined"){
+            if (postText.item(0) == null){
                 //create the element to add to the list of posts without the text!
                 var li = document.createElement("li");
                 var a = document.createElement("a");
@@ -40,13 +40,14 @@ function addNewPosts(){
                 var li = document.createElement("li");
                 var a = document.createElement("a");
                 a.setAttribute('href', '#');
+                postText = postText.item(0).textContent;
                 var startText = postText.substring(0, 20);
                 a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
                 li.appendChild(a);
                 ul.appendChild(li);
             }
         } else {
-            if (postText == "undefined"){
+            if (postText.item(0) == null){
                 //create the element to add to the list of posts without the text!
                 var li = document.createElement("li");
                 var a = document.createElement("a");
@@ -59,6 +60,7 @@ function addNewPosts(){
                 var li = document.createElement("li");
                 var a = document.createElement("a");
                 a.setAttribute('href', '#');
+                postText = postText.item(0).textContent;
                 var startText = postText.substring(0, 20);
                 a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
                 li.appendChild(a);
@@ -145,7 +147,8 @@ function sendPost(type){
     var index = getNumberOfSelectedPost();
     var postID = listOfContainers.item(index).getElementsByClassName("_5pcq");
     postID = postID.item(0).href;
-    alert(postID);
+    //alert(postID);
+    alert(document.getElementById("faceExtractor").getBoundingClientRect().top);
 //    ul = document.getElementById('listOfPosts');
 //    ulList = ul.children;
 //    for(var i = 0;i < ulList.length;i++){
