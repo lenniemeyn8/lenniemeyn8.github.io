@@ -186,6 +186,7 @@ window.onscroll = function () {
 
 
 function homeRefresh() {
+    console.log("Home Button was pressed");
   var timer = setTimeout(function(){
       alert('hi');
     //addNewPosts();
