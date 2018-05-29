@@ -6,6 +6,8 @@ var listOfText = [];
 var RedFrameObject;
 var RedFrameBoolean = false;
 
+var shallRefresh = false;
+
 //function to refresh the list of posts
 function addNewPosts(){
     //get the list of posts and empty it first so it can be filled with the new posts
@@ -184,8 +186,22 @@ window.onscroll = function () {
     document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
 };
 
+function loopRefresh () {
+    if (shallRefresh){
+        setTimeout(function(){
+            alert('hi from loopRefresh');
+            addNewPosts();
+            loopRefresh()
+    }, 5000);
+    } else {
+        console.log("Shall Refresh is false");
+    }
+}
+
+loopRefresh();
 
 function homeRefresh() {
+    shallRefresh = true;
     console.log("Home Button was pressed");
   var timer = setTimeout(function(){
       alert('hi');
