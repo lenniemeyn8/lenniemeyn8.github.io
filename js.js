@@ -18,8 +18,6 @@ var refreshCounter = 0;
 
 var listCounter = 0;
 
-alert("in der js.js: " + shallRefresh);
-
 //function to refresh the list of posts
 function addNewPosts(){
     
@@ -109,7 +107,7 @@ function addNewPosts(){
                 //listOfContainers.item(count + 1).remove();
                 //count++;
             }
-            //add the attributes of each
+            //add the attributes for the post
             listOfText.push(postText);
             listOfPosterName.push(posterName.item(0).children[0].innerHTML);
             listOfPrivacyStatus.push(postPrivacy.item(0).getAttribute("aria-label"));
@@ -140,26 +138,26 @@ function addNewPosts(){
 
 addNewPosts();
 
-//mutation observer to be fired when a new post is added
-var mutationObserver = new MutationObserver(
-    function(mutations) {
-        mutations.forEach(function(mutation) {
-        //alert (mutation.addedNodes);
-        console.log(mutation);
-        });
-        addNewPosts();
-    }
-
-);
-
-mutationObserver.observe(document.getElementById('contentArea'), {
- // attributes: true,
- // characterData: true,
-  childList: true,
-  subtree: true
-//  attributeOldValue: true,
-//  characterDataOldValue: true
-});
+////mutation observer to be fired when a new post is added
+//var mutationObserver = new MutationObserver(
+//    function(mutations) {
+//        mutations.forEach(function(mutation) {
+//        //alert (mutation.addedNodes);
+//        console.log(mutation);
+//        });
+//        addNewPosts();
+//    }
+//
+//);
+//
+//mutationObserver.observe(document.getElementById('contentArea'), {
+// // attributes: true,
+// // characterData: true,
+//  childList: true,
+//  subtree: true
+////  attributeOldValue: true,
+////  characterDataOldValue: true
+//});
 
 //mutation observer to be fired when the DOM changes of the facebook site
 var mutationObserverBig = new MutationObserver(
