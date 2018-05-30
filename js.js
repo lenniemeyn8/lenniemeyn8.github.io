@@ -129,7 +129,7 @@ mutationObserver.observe(document.getElementById('contentArea'), {
 //mutation observer to be fired when the DOM changes of the facebook site
 var mutationObserverBig = new MutationObserver(
     function(mutations) {
-        console.log("eins eins eins eins eins eins");
+        console.log("eins eins eins eins eins eins + " + shallRefresh);
        if (shallRefresh) {
            addNewPosts();
            shallRefresh = false;
