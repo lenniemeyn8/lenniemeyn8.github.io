@@ -297,6 +297,7 @@ function loopRefresh () {
 function homeRefresh() {
     shallRefresh = true;
     console.log("Home Button was pressed");
+    alert('homeRefresh');
  // var timer = setTimeout(function(){
     //  alert('hi');
     //addNewPosts();
