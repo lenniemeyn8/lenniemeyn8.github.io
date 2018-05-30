@@ -170,11 +170,9 @@ function getNumberOfSelectedPost(){
 }
 
 function sendPost(type){
-    var index = getNumberOfSelectedPost();
-    var postID = listOfContainers.item(index).getElementsByClassName("_5pcq");
-    postID = postID.item(0).href;
-    //alert(postID);
-    alert(document.getElementById("faceExtractor").getBoundingClientRect().top);
+   
+
+    
 //    ul = document.getElementById('listOfPosts');
 //    ulList = ul.children;
 //    for(var i = 0;i < ulList.length;i++){
@@ -198,6 +196,13 @@ function sendPost(type){
 function facebookLogin(){
         FB.login(function(response) { alert(response.authResponse.accessToken);
         });
+}
+
+function postForGraphAPI(){
+     var index = getNumberOfSelectedPost();
+     var postID = listOfContainers.item(index).getElementsByClassName("_5pcq");
+     postID = postID.item(0).href;
+     alert(document.getElementById("faceExtractor").getBoundingClientRect().top);
 }
 
 
