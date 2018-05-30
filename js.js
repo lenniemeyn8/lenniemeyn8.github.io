@@ -189,21 +189,24 @@ window.onscroll = function () {
 
 function loopRefresh () {
     console.log("loop refresh method call");
-    if (shallRefresh){
-        setTimeout(function(){
-            alert('hi from loopRefresh');
-            addNewPosts();
-            loopRefresh()
-    }, 5000);
-    } else {
-        console.log("Shall Refresh is false");
-        setTimeout(function(){
-            loopRefresh()
-    }, 5000);
-    }
+//    if (shallRefresh){
+//        setTimeout(function(){
+//            alert('hi from loopRefresh');
+//            addNewPosts();
+//            loopRefresh()
+//    }, 5000);
+//    } else {
+//        console.log("Shall Refresh is false");
+//        setTimeout(function(){
+//            loopRefresh()
+//    }, 5000);
+//    }
 }
 
-loopRefresh();
+$(document).ready(
+        );
+
+
 
 function homeRefresh() {
     shallRefresh = true;
