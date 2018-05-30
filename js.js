@@ -96,8 +96,13 @@ function addNewPosts(){
         //add the attributes of each
         listOfText.push(postText);
         listOfPosterName.push(posterName.item(0).children[0].innerHTML);
-        listOfDatesPublished.push(postDate.item(0).title);
         listOfPrivacyStatus.push(postPrivacy.item(0).getAttribute("aria-label"));
+        
+        if (postDate.item(0) == null){
+            listOfDatesPublished.push("undefined");
+        } else {
+            listOfDatesPublished.push(postDate.item(0).title);
+        }
         
         if (postShares.item(0) == null){
             listOfShares.push(0);
