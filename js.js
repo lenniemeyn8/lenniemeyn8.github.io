@@ -138,6 +138,9 @@ mutationObserver.observe(document.getElementById('contentArea'), {
 var mutationObserverBig = new MutationObserver(
     function(mutations) {
         console.log("eins eins eins eins eins eins + " + shallRefresh);
+        if (document.getElementById('listOfPosts').getChildren()[0] == null){
+            console.log("kein Wert in der Liste");
+        }
        if (shallRefresh) {
            refreshCounter++;
            addNewPosts();
