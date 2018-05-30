@@ -16,8 +16,18 @@ var topDistance = 50;
 
 var refreshCounter = 0;
 
+var listCounter = 0;
+
 //function to refresh the list of posts
 function addNewPosts(){
+    
+    //check how many items are in the list and if that amount changed
+    if (listCounter != document.querySelectorAll('._5pcr.userContentWrapper:not(._4nef)').length){
+        
+    } else {
+        
+    }
+    
     //get the list of posts and empty it first so it can be filled with the new posts
     ul = document.getElementById('listOfPosts');
     $(ul).empty();
