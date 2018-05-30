@@ -7,6 +7,7 @@ var RedFrameObject;
 var RedFrameBoolean = false;
 
 var shallRefresh = false;
+var topDistance = 50;
 
 //function to refresh the list of posts
 function addNewPosts(){
@@ -182,7 +183,7 @@ function test(){
 }
 
 window.onscroll = function () {
-    var topDistance = document.getElementById("faceExtractor").getBoundingClientRect().top;
+    topDistance = document.getElementById("faceExtractor").getBoundingClientRect().top;
     document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
 };
 
