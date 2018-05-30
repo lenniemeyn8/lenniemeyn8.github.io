@@ -87,7 +87,7 @@ function addNewPosts(){
     }
 }
 
-//mutation observer to be fired when the DOM changes of the facebook site
+//mutation observer to be fired when a new post is added
 var mutationObserver = new MutationObserver(
     function(mutations) {
         mutations.forEach(function(mutation) {
@@ -107,6 +107,30 @@ mutationObserver.observe(document.getElementById('contentArea'), {
 //  attributeOldValue: true,
 //  characterDataOldValue: true
 });
+
+//mutation observer to be fired when the DOM changes of the facebook site
+var mutationObserverBig = new MutationObserver(
+    function(mutations) {
+       if (shallRefresh) {
+           addNewPosts();
+           shallRefresh = false;
+       }
+        
+    }
+
+);
+
+mutationObserverBig.observe(document.getElementById('globalContainer'), {
+  attributes: true,
+  characterData: true,
+  childList: true,
+  subtree: true,
+  attributeOldValue: true,
+  characterDataOldValue: true
+});
+
+
+
 
 
 document.getElementById('listOfPosts').addEventListener('click', function(e) {
@@ -184,7 +208,8 @@ function test(){
 
 window.onscroll = function () {
     topDistance = document.getElementById("faceExtractor").getBoundingClientRect().top;
-    document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
+    var gap = ($(window).scrollTop()) + topDistance;
+    document.getElementById("faceExtractor").style.top = gap + "px";
 };
 
 function loopRefresh () {
@@ -203,12 +228,7 @@ function loopRefresh () {
 //    }
 }
 
-$(document).ready(
-        loopRefresh()
-        );
-
-
-
+//function that gets added to the onclick event on the Home button
 function homeRefresh() {
     shallRefresh = true;
     console.log("Home Button was pressed");
