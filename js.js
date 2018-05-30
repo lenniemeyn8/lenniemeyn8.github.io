@@ -38,6 +38,11 @@ function addNewPosts(){
         var postPrivacy = listOfContainers.item(count).querySelectorAll('.uiStreamPrivacy');
         var postShares = listOfContainers.item(count).querySelectorAll('._ipm._2x0m');
         
+        //check if items are zero
+        if (postPrivacy.item(0) == null){
+            postPrivacy = listOfContainers.item(count).querySelectorAll('._6a._29ee._4f-9._43_1');
+        }
+        
         if (posterName.item(0) == null){
             var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
             if (postText.item(0) == null){
