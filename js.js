@@ -204,6 +204,7 @@ function loopRefresh () {
 }
 
 $(document).ready(
+        loopRefresh()
         );
 
 
