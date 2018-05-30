@@ -195,6 +195,9 @@ function loopRefresh () {
     }, 5000);
     } else {
         console.log("Shall Refresh is false");
+        setTimeout(function(){
+            loopRefresh()
+    }, 5000);
     }
 }
 
