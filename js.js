@@ -258,16 +258,16 @@ function test(){
 //    document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
 //};
 
-window.onscroll = function () {
-   var positionFromTop = document.getElementById("faceExtractor").offsetTop;
-  topDistance = document.body.parentElement.scrollTop+positionFromTop;
-  if (topDistance < 50){
-    document.getElementById("faceExtractor").style.top = topDistance+ "px";
-  } else {
-    var gap = topDistance;
-    document.getElementById("faceExtractor").style.top = gap + "px";
-  }  
-};
+//window.onscroll = function () {
+//   var positionFromTop = document.getElementById("faceExtractor").offsetTop;
+//  topDistance = document.body.parentElement.scrollTop+positionFromTop;
+//  if (topDistance < 50){
+//    document.getElementById("faceExtractor").style.top = topDistance+ "px";
+//  } else {
+//    var gap = topDistance;
+//    document.getElementById("faceExtractor").style.top = gap + "px";
+//  }  
+//};
 
 function loopRefresh () {
     console.log("loop refresh method call");
