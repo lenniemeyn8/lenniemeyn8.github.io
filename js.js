@@ -209,8 +209,13 @@ function test(){
 
 window.onscroll = function () {
     topDistance = document.getElementById("faceExtractor").getBoundingClientRect().top;
-    var gap = ($(window).scrollTop()) + topDistance;
-    document.getElementById("faceExtractor").style.top = gap + "px";
+    if (topDistance < 50){
+        document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
+    } else {
+       var gap = ($(window).scrollTop()) + topDistance;
+       document.getElementById("faceExtractor").style.top = gap + "px";
+    }  
+    
 };
 
 function loopRefresh () {
