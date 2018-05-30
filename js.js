@@ -141,9 +141,9 @@ var mutationObserverBig = new MutationObserver(
        if (shallRefresh) {
            refreshCounter++;
            addNewPosts();
-           if (refreshCounter > 5){
+           if (refreshCounter > 10){
                shallRefresh = false;
-               refreshCounter - 0;
+               refreshCounter = 0;
            }   
        }       
     }
