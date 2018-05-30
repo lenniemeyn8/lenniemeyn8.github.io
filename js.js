@@ -111,14 +111,12 @@ mutationObserver.observe(document.getElementById('contentArea'), {
 //mutation observer to be fired when the DOM changes of the facebook site
 var mutationObserverBig = new MutationObserver(
     function(mutations) {
-        console.log("eins");
+        console.log("eins eins eins eins eins eins");
        if (shallRefresh) {
            addNewPosts();
            shallRefresh = false;
-       }
-        
+       }       
     }
-
 );
 
 mutationObserverBig.observe(document.getElementById('globalContainer'), {
@@ -208,14 +206,14 @@ function test(){
 }
 
 window.onscroll = function () {
-    topDistance = document.getElementById("faceExtractor").getBoundingClientRect().top;
-    if (topDistance < 50){
-        document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
-    } else {
-       var gap = ($(window).scrollTop()) + topDistance;
-       document.getElementById("faceExtractor").style.top = gap + "px";
-    }  
-    
+//    topDistance = document.getElementById("faceExtractor").getBoundingClientRect().top;
+//    if (topDistance < 50){
+//        document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
+//    } else {
+//       var gap = ($(window).scrollTop()) + topDistance;
+//       document.getElementById("faceExtractor").style.top = gap + "px";
+//    }  
+    document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
 };
 
 function loopRefresh () {
