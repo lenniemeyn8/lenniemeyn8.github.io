@@ -14,6 +14,8 @@ var RedFrameBoolean = false;
 var shallRefresh = false;
 var topDistance = 50;
 
+var refreshCounter = 0;
+
 //function to refresh the list of posts
 function addNewPosts(){
     //get the list of posts and empty it first so it can be filled with the new posts
@@ -137,8 +139,12 @@ var mutationObserverBig = new MutationObserver(
     function(mutations) {
         console.log("eins eins eins eins eins eins + " + shallRefresh);
        if (shallRefresh) {
+           refreshCounter++;
            addNewPosts();
-           shallRefresh = false;
+           if (refreshCounter > 5){
+               shallRefresh = false;
+               refreshCounter - 0;
+           }   
        }       
     }
 );
@@ -194,8 +200,8 @@ function getNumberOfSelectedPost(){
 }
 
 function sendPost(type){
-   
-   var data = {number_of_words : 10};
+   var csrftoken = getCookie('csrftoken');
+   var data = {number_of_words : 10, csrfmiddlewaretoken: csrftoken};
     $.post('https://lennie-masterthesis.herokuapp.com/setFeatures/', data, function(response){
 
             alert('hi');
@@ -319,5 +325,22 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+}
+
+// using jQuery, to get cookie by name
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
 
