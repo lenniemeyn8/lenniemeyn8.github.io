@@ -247,27 +247,6 @@ function test(){
     alert('just a test function');
 }
 
-//window.onscroll = function () {
-////    topDistance = document.getElementById("faceExtractor").getBoundingClientRect().top;
-////    if (topDistance < 50){
-////        document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
-////    } else {
-////       var gap = ($(window).scrollTop()) + topDistance;
-////       document.getElementById("faceExtractor").style.top = gap + "px";
-////    }  
-//    document.getElementById("faceExtractor").style.top = (($(window).scrollTop()) + 50) + "px";
-//};
-
-//window.onscroll = function () {
-//   var positionFromTop = document.getElementById("faceExtractor").offsetTop;
-//  topDistance = document.body.parentElement.scrollTop+positionFromTop;
-//  if (topDistance < 50){
-//    document.getElementById("faceExtractor").style.top = topDistance+ "px";
-//  } else {
-//    var gap = topDistance;
-//    document.getElementById("faceExtractor").style.top = gap + "px";
-//  }  
-//};
 
 function loopRefresh () {
     console.log("loop refresh method call");
