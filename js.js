@@ -29,6 +29,7 @@ function addNewPosts(){
         console.log("mutation, that had no effect on the amount of posts");
     } else {
         //a new item was added change the list!
+        listCounter = 0;
         //get the list of posts and empty it first so it can be filled with the new posts
         ul = document.getElementById('listOfPosts');
         $(ul).empty();
@@ -163,18 +164,7 @@ mutationObserver.observe(document.getElementById('contentArea'), {
 //mutation observer to be fired when the DOM changes of the facebook site
 var mutationObserverBig = new MutationObserver(
     function(mutations) {
-        console.log("eins eins eins eins eins eins + " + shallRefresh);
-        if (document.getElementById('listOfPosts').getElementsByTagName("li") == null){
-            console.log("kein Wert in der Liste");
-        }
-       if (shallRefresh) {
-           refreshCounter++;
-           addNewPosts();
-           if (refreshCounter > 10){
-               shallRefresh = false;
-               refreshCounter = 0;
-           }   
-       }       
+        addNewPosts();    
     }
 );
 
