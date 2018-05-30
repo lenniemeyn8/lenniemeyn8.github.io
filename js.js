@@ -96,7 +96,13 @@ function addNewPosts(){
         listOfPosterName.push(posterName.item(0).children[0].innerHTML);
         listOfDatesPublished.push(postDate.item(0).title);
         listOfPrivacyStatus.push(postPrivacy.item(0).getAttribute("aria-label"));
-        listOfShares.push(postShares.item(0).textContent);
+        
+        if (postShares.item(0) == null){
+            listOfShares.push(0);
+        } else {
+            listOfShares.push(postShares.item(0).textContent);
+        }
+        
 
     }
     if (RedFrameBoolean){
