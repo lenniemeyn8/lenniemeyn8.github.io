@@ -187,6 +187,7 @@ window.onscroll = function () {
 };
 
 function loopRefresh () {
+    console.log("loop refresh method call");
     if (shallRefresh){
         setTimeout(function(){
             alert('hi from loopRefresh');
