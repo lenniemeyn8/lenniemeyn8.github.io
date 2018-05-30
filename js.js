@@ -206,10 +206,10 @@ loopRefresh();
 function homeRefresh() {
     shallRefresh = true;
     console.log("Home Button was pressed");
-  var timer = setTimeout(function(){
-      alert('hi');
+ // var timer = setTimeout(function(){
+    //  alert('hi');
     //addNewPosts();
-    }, 2000);
+   // }, 2000);
 
 }
 
