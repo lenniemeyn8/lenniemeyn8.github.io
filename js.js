@@ -11,7 +11,7 @@ var listOfShares = [];
 var RedFrameObject;
 var RedFrameBoolean = false;
 
-//var shallRefresh = false;
+var shallRefresh = false;
 var topDistance = 50;
 
 var refreshCounter = 0;
@@ -136,6 +136,8 @@ function addNewPosts(){
     }
     
 } //function addNewPosts() ends!
+
+addNewPosts();
 
 //mutation observer to be fired when a new post is added
 var mutationObserver = new MutationObserver(
