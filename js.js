@@ -18,115 +18,124 @@ var refreshCounter = 0;
 
 var listCounter = 0;
 
+alert('in der js.js');
+
 //function to refresh the list of posts
 function addNewPosts(){
     
     //check how many items are in the list and if that amount changed
-    if (listCounter != document.querySelectorAll('._5pcr.userContentWrapper:not(._4nef)').length){
-        
+    if (listCounter == document.querySelectorAll('._5pcr.userContentWrapper:not(._4nef)').length){
+        //list is still the same, no need to change
+        console.log("mutation, that had no effect on the amount of posts");
     } else {
-        
-    }
-    
-    //get the list of posts and empty it first so it can be filled with the new posts
-    ul = document.getElementById('listOfPosts');
-    $(ul).empty();
+        //a new item was added change the list!
+        //get the list of posts and empty it first so it can be filled with the new posts
+        ul = document.getElementById('listOfPosts');
+        $(ul).empty();
 
-    //get all the containers for the post
-    listOfContainers = document.querySelectorAll('._5pcr.userContentWrapper:not(._4nef)');
+        //get all the containers for the post
+        listOfContainers = document.querySelectorAll('._5pcr.userContentWrapper:not(._4nef)');
+
+        //refresh the content of the post item holders
+        listOfText = [];
+        listOfPosterName = [];
+        listOfDatesPublished = [];
+        listOfPrivacyStatus = [];
+        listOfShares = [];
     
-    //refresh the content of the post item holders
-    listOfText = [];
-    listOfPosterName = [];
-    listOfDatesPublished = [];
-    listOfPrivacyStatus = [];
-    listOfShares = [];
-    
-    //each container holds a post. For each container the name and more has to displayed
-    for (var count=0; count < listOfContainers.length; count++){
-        var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
-        var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
-        var postDate = listOfContainers.item(count).querySelectorAll('.timestamp');
-        var postPrivacy = listOfContainers.item(count).querySelectorAll('.uiStreamPrivacy');
-        var postShares = listOfContainers.item(count).querySelectorAll('._ipm._2x0m');
-        
-        //check if items are zero
-        if (postPrivacy.item(0) == null){
-            postPrivacy = listOfContainers.item(count).querySelectorAll('._6a._29ee._4f-9._43_1');
-        }
-        
-        if (posterName.item(0) == null){
-            var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
-            if (postText.item(0) == null){
-                //create the element to add to the list of posts without the text!
-                var li = document.createElement("li");
-                var a = document.createElement("a");
-                a.setAttribute('href', '#');
-                a.innerHTML = posterName.item(0).children[0].innerHTML;
-                li.appendChild(a);
-                ul.appendChild(li);
-            } else {
-                //create the element to add to the list of posts
-                var li = document.createElement("li");
-                var a = document.createElement("a");
-                a.setAttribute('href', '#');
-                postText = postText.item(0).textContent;
-                var startText = postText.substring(0, 20);
-                a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
-                li.appendChild(a);
-                ul.appendChild(li);
+        //each container holds a post. For each container the name and more has to displayed
+        for (var count=0; count < listOfContainers.length; count++){
+            //increase the counter for each object that has been added
+            listCounter++;
+            
+            //get all the data fields of each post
+            var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
+            var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
+            var postDate = listOfContainers.item(count).querySelectorAll('.timestamp');
+            var postPrivacy = listOfContainers.item(count).querySelectorAll('.uiStreamPrivacy');
+            var postShares = listOfContainers.item(count).querySelectorAll('._ipm._2x0m');
+
+            //check if items are zero
+            if (postPrivacy.item(0) == null){
+                postPrivacy = listOfContainers.item(count).querySelectorAll('._6a._29ee._4f-9._43_1');
             }
-        } else {
-            if (postText.item(0) == null){
-                //create the element to add to the list of posts without the text!
-                var li = document.createElement("li");
-                var a = document.createElement("a");
-                a.setAttribute('href', '#');
-                a.innerHTML = posterName.item(0).children[0].innerHTML;
-                li.appendChild(a);
-                ul.appendChild(li);
-            } else {
-                //create the element to add to the list of posts
-                var li = document.createElement("li");
-                var a = document.createElement("a");
-                a.setAttribute('href', '#');
-                postText = postText.item(0).textContent;
-                var startText = postText.substring(0, 20);
-                a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
-                li.appendChild(a);
-                ul.appendChild(li);
-            }    
-        }
-        //check if there is a subcontainer in the container
-        if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper").length >= 1){
-            //do something because 2 items were added to the list that belong to the same post
-            //listOfContainers.item(count + 1).remove();
-            //count++;
-        }
-        //add the attributes of each
-        listOfText.push(postText);
-        listOfPosterName.push(posterName.item(0).children[0].innerHTML);
-        listOfPrivacyStatus.push(postPrivacy.item(0).getAttribute("aria-label"));
-        
-        if (postDate.item(0) == null){
-            listOfDatesPublished.push("undefined");
-        } else {
-            listOfDatesPublished.push(postDate.item(0).title);
-        }
-        
-        if (postShares.item(0) == null){
-            listOfShares.push(0);
-        } else {
-            listOfShares.push(postShares.item(0).textContent);
-        }
-        
 
+            if (posterName.item(0) == null){
+                var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
+                if (postText.item(0) == null){
+                    //create the element to add to the list of posts without the text!
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.setAttribute('href', '#');
+                    a.innerHTML = posterName.item(0).children[0].innerHTML;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                } else {
+                    //create the element to add to the list of posts
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.setAttribute('href', '#');
+                    postText = postText.item(0).textContent;
+                    var startText = postText.substring(0, 20);
+                    a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                }
+            } else {
+                if (postText.item(0) == null){
+                    //create the element to add to the list of posts without the text!
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.setAttribute('href', '#');
+                    a.innerHTML = posterName.item(0).children[0].innerHTML;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                } else {
+                    //create the element to add to the list of posts
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.setAttribute('href', '#');
+                    postText = postText.item(0).textContent;
+                    var startText = postText.substring(0, 20);
+                    a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                }    
+            }
+            //check if there is a subcontainer in the container
+            if (listOfContainers.item(count).getElementsByClassName("_5pcr userContentWrapper").length >= 1){
+                //do something because 2 items were added to the list that belong to the same post
+                //listOfContainers.item(count + 1).remove();
+                //count++;
+            }
+            //add the attributes of each
+            listOfText.push(postText);
+            listOfPosterName.push(posterName.item(0).children[0].innerHTML);
+            listOfPrivacyStatus.push(postPrivacy.item(0).getAttribute("aria-label"));
+
+            if (postDate.item(0) == null){
+                listOfDatesPublished.push("undefined");
+            } else {
+                listOfDatesPublished.push(postDate.item(0).title);
+            }
+
+            if (postShares.item(0) == null){
+                listOfShares.push(0);
+            } else {
+                listOfShares.push(postShares.item(0).textContent);
+            }
+
+
+        } //for loop ends!
+        
+        if (RedFrameBoolean){
+            RedFrameObject.style.border = "";
+            RedFrameBoolean = false;
+        }
+        
     }
-    if (RedFrameBoolean){
-        RedFrameObject.style.border = "";
-        RedFrameBoolean = false;
-    }
-}
+    
+} //function addNewPosts() ends!
 
 //mutation observer to be fired when a new post is added
 var mutationObserver = new MutationObserver(
