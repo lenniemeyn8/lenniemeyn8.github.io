@@ -30,7 +30,8 @@ function addNewPosts(){
         listCounter = 0;
         //get the list of posts and empty it first so it can be filled with the new posts
         ul = document.getElementById('listOfPosts');
-        $(ul).empty();
+        ul.innerHTML = "";
+        //$(ul).empty();
 
         //get all the containers for the post
         listOfContainers = document.querySelectorAll('._5pcr.userContentWrapper:not(._4nef)');
