@@ -11,14 +11,14 @@ var listOfShares = [];
 var RedFrameObject;
 var RedFrameBoolean = false;
 
-var shallRefresh = false;
+//var shallRefresh = false;
 var topDistance = 50;
 
 var refreshCounter = 0;
 
 var listCounter = 0;
 
-alert('in der js.js');
+alert("in der js.js: " + shallRefresh);
 
 //function to refresh the list of posts
 function addNewPosts(){
