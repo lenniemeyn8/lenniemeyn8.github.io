@@ -1,7 +1,12 @@
 var listOfContainers;
 var listOfLikeBars;
+
+
 var listOfPosterName = [];
 var listOfText = [];
+var listOfDatesPublished = [];
+var listOfPrivacyStatus = [];
+var listOfShares = [];
 
 var RedFrameObject;
 var RedFrameBoolean = false;
@@ -21,12 +26,17 @@ function addNewPosts(){
     //refresh the content of the post item holders
     listOfText = [];
     listOfPosterName = [];
+    listOfDatesPublished = [];
+    listOfPrivacyStatus = [];
+    listOfShares = [];
     
     //each container holds a post. For each container the name and more has to displayed
     for (var count=0; count < listOfContainers.length; count++){
         var posterName = listOfContainers.item(count).getElementsByClassName("fwb fcg");
         var postText = listOfContainers.item(count).getElementsByClassName("_5pbx userContent");
-        
+        var postDate = listOfContainers.item(count).querySelectorAll('.timestamp');
+        var postPrivacy = listOfContainers.item(count).querySelectorAll('.uiStreamPrivacy');
+        var postShares = listOfContainers.item(count).querySelectorAll('._ipm._2x0m');
         
         if (posterName.item(0) == null){
             var posterName = listOfContainers.item(count).getElementsByClassName("fwb");
@@ -79,6 +89,9 @@ function addNewPosts(){
         //add the attributes of each
         listOfText.push(postText);
         listOfPosterName.push(posterName.item(0).children[0].innerHTML);
+        listOfDatesPublished.push(postDate.item(0).title);
+        listOfPrivacyStatus.push(postPrivacy.item(0).getAttribute("aria-label"));
+        listOfShares.push(postShares.item(0).textContent);
 
     }
     if (RedFrameBoolean){
@@ -119,7 +132,7 @@ var mutationObserverBig = new MutationObserver(
     }
 );
 
-mutationObserverBig.observe(document.getElementById('globalContainer'), {
+mutationObserverBig.observe(document.getElementById('u_0_j'), {
   attributes: true,
   characterData: true,
   childList: true,
@@ -171,7 +184,14 @@ function getNumberOfSelectedPost(){
 
 function sendPost(type){
    
+   var data = {number_of_words : 10};
+    $.post('https://lennie-masterthesis.herokuapp.com/setFeatures/', data, function(response){
 
+            alert('hi');
+    });
+    
+    var index = getNumberOfSelectedPost();
+    console.log('Anzahl Shares: ' + listOfShares[index]);
     
 //    ul = document.getElementById('listOfPosts');
 //    ulList = ul.children;
