@@ -265,36 +265,6 @@ function test(){
     alert('just a test function');
 }
 
-
-function loopRefresh () {
-    console.log("loop refresh method call");
-//    if (shallRefresh){
-//        setTimeout(function(){
-//            alert('hi from loopRefresh');
-//            addNewPosts();
-//            loopRefresh()
-//    }, 5000);
-//    } else {
-//        console.log("Shall Refresh is false");
-//        setTimeout(function(){
-//            loopRefresh()
-//    }, 5000);
-//    }
-}
-
-//function that gets added to the onclick event on the Home button
-function homeRefresh() {
-    shallRefresh = true;
-    console.log("Home Button was pressed");
-    alert('homeRefresh');
- // var timer = setTimeout(function(){
-    //  alert('hi');
-    //addNewPosts();
-   // }, 2000);
-
-}
-
-
 dragElement(document.getElementById(("faceExtractor")));
 
 function dragElement(elmnt) {
