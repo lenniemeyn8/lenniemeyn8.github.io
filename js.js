@@ -77,7 +77,7 @@ function addNewPosts(){
                     a.setAttribute('href', '#');
                     postText = postText.item(0).textContent;
                     var startText = postText.substring(0, 20);
-                    a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
+                    a.innerHTML = '<b>' + posterName.item(0).children[0].innerHTML + '</b>: ' + startText;
                     li.appendChild(a);
                     ul.appendChild(li);
                 }
@@ -87,7 +87,7 @@ function addNewPosts(){
                     var li = document.createElement("li");
                     var a = document.createElement("a");
                     a.setAttribute('href', '#');
-                    a.innerHTML = posterName.item(0).children[0].innerHTML;
+                    a.innerHTML = '<b>' + posterName.item(0).children[0].innerHTML + '</b>';
                     li.appendChild(a);
                     ul.appendChild(li);
                 } else {
@@ -97,7 +97,7 @@ function addNewPosts(){
                     a.setAttribute('href', '#');
                     postText = postText.item(0).textContent;
                     var startText = postText.substring(0, 20);
-                    a.innerHTML = posterName.item(0).children[0].innerHTML + ': ' + startText;
+                    a.innerHTML = '<b>' + posterName.item(0).children[0].innerHTML + '</b>: ' + startText;
                     li.appendChild(a);
                     ul.appendChild(li);
                 }    
