@@ -67,7 +67,7 @@ function addNewPosts(){
                     var li = document.createElement("li");
                     var a = document.createElement("a");
                     a.setAttribute('href', '#');
-                    a.innerHTML = posterName.item(0).children[0].innerHTML;
+                    a.innerHTML = '<b>' + posterName.item(0).children[0].innerHTML + '</b>';
                     li.appendChild(a);
                     ul.appendChild(li);
                 } else {
